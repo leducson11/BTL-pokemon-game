@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1744395770 source:c:\cpp\pokemon\pokemon_mem_game_ver4.0\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"graphics.h"
+	"defs.h"
+	"logic.h"
+	<vector>
+
+1744383660 c:\cpp\pokemon\pokemon_mem_game_ver4.0\graphics.h
+	<SDL.h>
+	<SDL_image.h>
+	"defs.h"
+
+1744470907 c:\cpp\pokemon\pokemon_mem_game_ver4.0\defs.h
+
+1744470959 c:\cpp\pokemon\pokemon_mem_game_ver4.0\logic.h
+	<SDL.h>
+	<vector>
+	<algorithm>
+	<random>
+	"defs.h"
+	"graphics.h"
+
+1744395770 source:c:\cpp\pokemon\pokemon_mem_game_ver4.0\logic.cpp
+	"logic.h"
+	<vector>
+	<algorithm>
+	<random>
+	<iostream>
+
