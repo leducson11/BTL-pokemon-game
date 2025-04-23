@@ -20,49 +20,13 @@ struct Memory
     int imageId[rows][cols];
     bool isComparing = false;
     Uint32 compareStartTime;          // Thời điểm bắt đầu so sánh
-    const Uint32 COMPARE_DELAY = 400; // Thời gian chờ so sánh
-    // Constructor
-    Memory()
-    {
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < cols; j++)
-            {
-                board[i][j].x = startX + j * (cellWidth + MARGIN_X);
-                board[i][j].y = startY + i * (cellHeight + MARGIN_Y);
-                board[i][j].w = cellWidth;
-                board[i][j].h = cellHeight;
-                isFlipped[i][j] = false;
-                matched[i][j] = false;
-                openBall[i][j] = nullptr;
-            }
-        }
-        closeBall = nullptr;
-    }
+    const Uint32 COMPARE_DELAY = 650; // Thời gian chờ so sánh
 
-    ~Memory()
-    {
-        // Giải phóng
-        for(int i = 0; i < rows; i++)
-        {
-            for(int j = 0; j < cols; j++)
-            {
-                if(openBall[i][j] != nullptr)
-                {
-                    SDL_DestroyTexture(openBall[i][j]);
-                    openBall[i][j] = nullptr;
-                }
-            }
-        }
-
-        if(closeBall != nullptr)
-        {
-            SDL_DestroyTexture(closeBall);
-            closeBall = nullptr;
-        }
-    }
+    Memory();
+    ~Memory();
 };
 void loadTextures(Graphics& graphics, Memory& memory);
+void initGame();
 
 #endif
 
