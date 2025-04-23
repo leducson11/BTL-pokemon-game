@@ -1,10 +1,14 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <vector>
+#include <algorithm>
+#include <random>
+
 #include "graphics.h"
 #include "defs.h"
 #include "logic.h"
-#include <vector>
+
 using namespace std;
 
 // Constructor
