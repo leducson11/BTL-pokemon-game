@@ -1,8 +1,11 @@
 #include <iostream>
+#include <string>
 #include <SDL.h>
 #include <SDL_image.h>
 
 #include "graphics.h"
+
+using namespace std;
 
 void Graphics::logErrorAndExit(const char* msg, const char* error)
 {
@@ -86,4 +89,40 @@ void Graphics::quit()
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
+}
+
+void renderBoard(Graphics& graphics, Memory& memory)
+{
+    graphics.prepareScene(memory.background);
+    for(int i = 0; i < rows; i++)
+    {
+        for(int j = 0; j < cols; j++)
+        {
+            if(memory.isFlipped[i][j] || memory.matched[i][j])
+            {
+                SDL_RenderCopy(graphics.renderer, memory.openBall[i][j], NULL, &memory.board[i][j]);
+            }
+            else
+            {
+                SDL_RenderCopy(graphics.renderer, memory.closeBall, NULL, &memory.board[i][j]);
+            }
+        }
+    }
+    graphics.presentScene();
+}
+
+void renderWinBoard(Graphics& graphics, Memory& memory)
+{
+    if(memory.youwin != NULL)
+    {
+        SDL_Rect winBoard;
+        winBoard.w = 612;
+        winBoard.h = 408;
+        winBoard.x = (SCREEN_WIDTH - winBoard.w) / 2;
+        winBoard.y = (SCREEN_HEIGHT - winBoard.h) / 2;
+
+        SDL_RenderCopy(graphics.renderer, memory.youwin, NULL, &winBoard);
+        graphics.presentScene();
+        waitUntilKeyPressed();
+    }
 }

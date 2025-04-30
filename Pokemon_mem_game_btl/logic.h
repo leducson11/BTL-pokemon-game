@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <random>
+
 #include "defs.h"
 #include "graphics.h"
 
@@ -15,6 +16,8 @@ struct Memory
     bool matched[rows][cols];
     SDL_Texture* closeBall;
     SDL_Texture* openBall[rows][cols];
+    SDL_Texture* background;
+    SDL_Texture* youwin;
     int openedCount = 0;                  // Số ô đang mở (0, 1 hoặc 2)
     SDL_Point openedCards[2];         // Vị trí 2 ô đang mở
     int imageId[rows][cols];
@@ -25,8 +28,9 @@ struct Memory
     Memory();
     ~Memory();
 };
-void loadTextures(Graphics& graphics, Memory& memory);
-void initGame();
+bool checkWin(bool matched[rows][cols]);
+void waitUntilKeyPressed();
+void mouseClickEvent(Memory& memory, int x, int y);
+void compareBall(Memory& memory);
 
 #endif
-

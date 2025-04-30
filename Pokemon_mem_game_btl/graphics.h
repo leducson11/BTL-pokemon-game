@@ -3,7 +3,11 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <string>
 #include "defs.h"
+#include "logic.h"
+
+using namespace std;
 
 struct Graphics
 {
@@ -14,10 +18,11 @@ struct Graphics
     void init();
     void prepareScene(SDL_Texture * background);
     void presentScene();
-    SDL_Texture *loadTexture(const char *filename);
+    SDL_Texture* loadTexture(const char *filename);
     void renderTexture(SDL_Texture *texture, int x, int y);
     void blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y);
     void quit();
 };
-
+void renderBoard(Graphics& graphics, Memory& memory);
+void renderWinBoard(Graphics& graphics, Memory& memory);
 #endif // _GRAPHICS__H

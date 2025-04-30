@@ -16,4 +16,3 @@ const int numImages = 8;
 #define WINDOW_TITLE "Pokemon PIKAPIKA ver 4.0"
 
 #endif
-
