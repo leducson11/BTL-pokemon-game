@@ -62,7 +62,7 @@ using namespace std;
         }
     }
 
-    bool checkWin(bool matched[rows][cols])
+    bool Memory::checkWin(bool matched[rows][cols])
 {
     for (int i = 0; i < rows; ++i)
         for (int j = 0; j < cols; ++j)
@@ -70,7 +70,7 @@ using namespace std;
     return true;
 }
 
-void waitUntilKeyPressed()
+void Memory::waitUntilKeyPressed()
 {
     SDL_Event e;
     while (true)
@@ -81,7 +81,7 @@ void waitUntilKeyPressed()
     }
 }
 
-void mouseClickEvent(Memory& memory, int mouseX, int mouseY){
+void Memory::mouseClickEvent(Memory& memory, int mouseX, int mouseY){
     cerr << "Mouse clicked at: " << mouseX << ", " << mouseY << endl;
             for (int i = 0; i < rows; i++)
             {
@@ -110,7 +110,7 @@ void mouseClickEvent(Memory& memory, int mouseX, int mouseY){
                 }
             }
 }
-void compareBall(Memory& memory){
+void Memory::compareBall(Memory& memory){
     if (memory.isComparing && SDL_GetTicks() - memory.compareStartTime > memory.COMPARE_DELAY)
         {
             int i1 = memory.openedCards[0].x;

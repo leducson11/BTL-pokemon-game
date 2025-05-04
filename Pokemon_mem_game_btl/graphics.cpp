@@ -70,18 +70,6 @@ void Graphics::renderTexture(SDL_Texture *texture, int x, int y)
     SDL_RenderCopy(renderer, texture, NULL, &dest);
 }
 
-void Graphics::blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y)
-{
-    SDL_Rect dest;
-
-    dest.x = x;
-    dest.y = y;
-    dest.w = src->w;
-    dest.h = src->h;
-
-    SDL_RenderCopy(renderer, texture, src, &dest);
-}
-
 void Graphics::quit()
 {
     IMG_Quit();
@@ -91,7 +79,7 @@ void Graphics::quit()
     SDL_Quit();
 }
 
-void renderBoard(Graphics& graphics, Memory& memory)
+void Graphics::renderBoard(Graphics& graphics, Memory& memory)
 {
     graphics.prepareScene(memory.background);
     for(int i = 0; i < rows; i++)
@@ -111,7 +99,7 @@ void renderBoard(Graphics& graphics, Memory& memory)
     graphics.presentScene();
 }
 
-void renderWinBoard(Graphics& graphics, Memory& memory)
+void Graphics::renderWinBoard(Graphics& graphics, Memory& memory)
 {
     if(memory.youwin != NULL)
     {
@@ -123,6 +111,6 @@ void renderWinBoard(Graphics& graphics, Memory& memory)
 
         SDL_RenderCopy(graphics.renderer, memory.youwin, NULL, &winBoard);
         graphics.presentScene();
-        waitUntilKeyPressed();
+        memory.waitUntilKeyPressed();
     }
 }

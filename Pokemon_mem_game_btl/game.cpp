@@ -16,7 +16,7 @@ void gameLoop(Graphics& graphics, Memory& memory){
     bool quit = false;
     while (! quit)
     {
-        renderBoard(graphics, memory);
+        graphics.renderBoard(graphics, memory);
         SDL_PollEvent(&event);
         switch (event.type)
         {
@@ -26,15 +26,15 @@ void gameLoop(Graphics& graphics, Memory& memory){
         case SDL_MOUSEBUTTONDOWN:
             int mouseX, mouseY;
             SDL_GetMouseState(&mouseX, &mouseY);
-            mouseClickEvent(memory, mouseX, mouseY);
+            memory.mouseClickEvent(memory, mouseX, mouseY);
             break;
         }
-        compareBall(memory);
+        memory.compareBall(memory);
 
-        if (checkWin(memory.matched))
+        if (memory.checkWin(memory.matched))
         {
             cerr << "You win!" << endl;
-            renderWinBoard(graphics, memory);
+            graphics.renderWinBoard(graphics, memory);
             quit = true;
         }
 

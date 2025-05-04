@@ -24,13 +24,13 @@ struct Memory
     bool isComparing = false;
     Uint32 compareStartTime;          // Thời điểm bắt đầu so sánh
     const Uint32 COMPARE_DELAY = 650; // Thời gian chờ so sánh
+    bool checkWin(bool matched[rows][cols]);
+    void waitUntilKeyPressed();
+    void mouseClickEvent(Memory& memory, int x, int y);
+    void compareBall(Memory& memory);
 
     Memory();
     ~Memory();
 };
-bool checkWin(bool matched[rows][cols]);
-void waitUntilKeyPressed();
-void mouseClickEvent(Memory& memory, int x, int y);
-void compareBall(Memory& memory);
 
 #endif
