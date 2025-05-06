@@ -75,6 +75,7 @@ void Memory::waitUntilKeyPressed()
     SDL_Event e;
     while (true)
     {
+        SDL_ShowCursor(true);
         if ( SDL_PollEvent(&e) != 0 && (e.type == SDL_KEYDOWN || e.type == SDL_QUIT) )
             return;
         SDL_Delay(100);

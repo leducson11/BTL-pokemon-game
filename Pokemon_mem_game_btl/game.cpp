@@ -8,15 +8,18 @@
 #include "graphics.h"
 #include "defs.h"
 #include "logic.h"
+#include "game.h"
+#include "mouse.h"
 
 using namespace std;
 
-void gameLoop(Graphics& graphics, Memory& memory){
+void gameLoop(Graphics& graphics, Memory& memory, Mouse& mouse){
     SDL_Event event;
     bool quit = false;
     while (! quit)
     {
         graphics.renderBoard(graphics, memory);
+        mouse.update();
         SDL_PollEvent(&event);
         switch (event.type)
         {
@@ -29,6 +32,7 @@ void gameLoop(Graphics& graphics, Memory& memory){
             memory.mouseClickEvent(memory, mouseX, mouseY);
             break;
         }
+        mouse.draw();
         memory.compareBall(memory);
 
         if (memory.checkWin(memory.matched))

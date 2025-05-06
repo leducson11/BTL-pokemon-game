@@ -1,6 +1,5 @@
-// định nghĩa hàm số, cấu trúc
-#ifndef _DEFS__H
-#define _DEFS__H
+#ifndef DEFS_H
+#define DEFS_H
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 800;

@@ -96,7 +96,6 @@ void Graphics::renderBoard(Graphics& graphics, Memory& memory)
             }
         }
     }
-    graphics.presentScene();
 }
 
 void Graphics::renderWinBoard(Graphics& graphics, Memory& memory)

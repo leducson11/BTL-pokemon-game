@@ -1,12 +1,14 @@
-#ifndef _GAME_H
-#define _GAME_H
+#ifndef GAME_H
+#define GAME_H
 
 #include <SDL.h>
 #include <SDL_image.h>
 #include <string>
 #include "defs.h"
 #include "logic.h"
+#include "mouse.h"
+#include "graphics.h"
 
-void gameLoop(Graphics& graphics, Memory& memory);
+void gameLoop(Graphics& graphics, Memory& memory, Mouse& mouse);
 
-#endif // _GAME_H
+#endif // GAME_H

@@ -1,5 +1,5 @@
-#ifndef _GRAPHICS__H
-#define _GRAPHICS__H
+#ifndef GRAPHICS_H
+#define GRAPHICS_H
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -23,6 +23,8 @@ struct Graphics
     void quit();
     void renderBoard(Graphics& graphics, Memory& memory);
     void renderWinBoard(Graphics& graphics, Memory& memory);
+
 };
 
-#endif // _GRAPHICS__H
+//extern Graphics graphics;
+#endif // GRAPHICS_H
