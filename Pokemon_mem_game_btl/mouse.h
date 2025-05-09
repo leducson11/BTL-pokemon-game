@@ -16,9 +16,9 @@ Graphics& graphics;
 
     Mouse(Graphics& graphics) : graphics(graphics)
     {
-        cursor = graphics.loadTexture("image/mouse.png");
-        rect.w = 50;
-        rect.h = 50;
+        cursor = graphics.loadTexture("image/doremon2.png");
+        rect.w = 80;
+        rect.h = 80;
         point.w = 1;
         point.h = 1;
         SDL_ShowCursor(false);

@@ -21,8 +21,9 @@ SDL_Texture* checkLoadImage(Graphics& graphics, const char* path){
 
 void loadResources(Graphics& graphics, Memory& memory){
     memory.background = checkLoadImage(graphics, "image/p3.png_large");
-    memory.youwin = checkLoadImage(graphics, "image/youwin.png");
+    memory.youwin = checkLoadImage(graphics, "image/youwin.jpg");
     memory.closeBall = checkLoadImage(graphics, "image/ball2.png");
+    memory.menu = checkLoadImage(graphics, "image/menu.jpg");
 
      const char* ballImages[] =
     {

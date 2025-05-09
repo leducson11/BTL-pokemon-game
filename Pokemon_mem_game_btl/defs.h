@@ -12,6 +12,6 @@ const int cellHeight = 104;
 const int startX = 30;
 const int startY = 310;
 const int numImages = 8;
-#define WINDOW_TITLE "Pokemon PIKAPIKA ver 4.0"
+#define WINDOW_TITLE "Fake Pokemon Game"
 
 #endif

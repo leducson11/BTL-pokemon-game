@@ -1,5 +1,5 @@
-#ifndef _LOGIC__H
-#define _LOGIC__H
+#ifndef LOGIC_H
+#define LOGIC_H
 
 #include <SDL.h>
 #include <vector>
@@ -18,6 +18,7 @@ struct Memory
     SDL_Texture* openBall[rows][cols];
     SDL_Texture* background;
     SDL_Texture* youwin;
+    SDL_Texture* menu;
     int openedCount = 0;                  // Số ô đang mở (0, 1 hoặc 2)
     SDL_Point openedCards[2];         // Vị trí 2 ô đang mở
     int imageId[rows][cols];

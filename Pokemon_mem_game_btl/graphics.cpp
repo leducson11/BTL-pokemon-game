@@ -103,8 +103,8 @@ void Graphics::renderWinBoard(Graphics& graphics, Memory& memory)
     if(memory.youwin != NULL)
     {
         SDL_Rect winBoard;
-        winBoard.w = 612;
-        winBoard.h = 408;
+        winBoard.w = 662;
+        winBoard.h = 458;
         winBoard.x = (SCREEN_WIDTH - winBoard.w) / 2;
         winBoard.y = (SCREEN_HEIGHT - winBoard.h) / 2;
 

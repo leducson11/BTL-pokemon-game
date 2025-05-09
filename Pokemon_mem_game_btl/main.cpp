@@ -8,6 +8,7 @@
 #include "resources.h"
 #include "game.h"
 #include "mouse.h"
+#include "mouse.h"
 
 using namespace std;
 
