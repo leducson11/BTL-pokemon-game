@@ -9,6 +9,6 @@
 #include "mouse.h"
 #include "graphics.h"
 
-void gameLoop(Graphics& graphics, Memory& memory, Mouse& mouse);
+void gameLoop(Graphics& graphics, Memory& memory, Mouse& mouse, ScrollingBackground& background);
 
 #endif // GAME_H

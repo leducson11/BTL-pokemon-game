@@ -113,3 +113,24 @@ void Graphics::renderWinBoard(Graphics& graphics, Memory& memory)
         memory.waitUntilKeyPressed();
     }
 }
+
+void Graphics::render(ScrollingBackground& background)
+{
+    renderTexture(background.tex, background.scrollingOffset, 0);
+    renderTexture(background.tex, background.scrollingOffset - background.width, 0);
+}
+
+void ScrollingBackground::setTexture(SDL_Texture* _texture)
+{
+    tex = _texture;
+    SDL_QueryTexture(tex, NULL, NULL, &width, & height);
+}
+
+void ScrollingBackground::scroll(int distance)
+{
+    scrollingOffset -= distance;
+    if(scrollingOffset < 0)
+    {
+        scrollingOffset = width;
+    }
+}

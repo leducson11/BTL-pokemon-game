@@ -9,6 +9,16 @@
 
 using namespace std;
 
+struct ScrollingBackground
+{
+    SDL_Texture* tex;
+    int scrollingOffset = 0;
+    int width, height;
+
+    void setTexture(SDL_Texture* _texture);
+    void scroll(int distance);
+};
+
 struct Graphics
 {
     SDL_Renderer *renderer;
@@ -23,8 +33,8 @@ struct Graphics
     void quit();
     void renderBoard(Graphics& graphics, Memory& memory);
     void renderWinBoard(Graphics& graphics, Memory& memory);
+    void render(ScrollingBackground& background);
 
 };
 
-//extern Graphics graphics;
 #endif // GRAPHICS_H

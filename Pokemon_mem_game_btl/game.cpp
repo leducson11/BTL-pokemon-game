@@ -11,6 +11,7 @@
 #include "game.h"
 #include "mouse.h"
 #include "button.h"
+#include "resources.h"
 
 using namespace std;
 
@@ -20,7 +21,8 @@ enum GameState
     PLAYING
 };
 
-void gameLoop(Graphics& graphics, Memory& memory, Mouse& mouse){
+void gameLoop(Graphics& graphics, Memory& memory, Mouse& mouse, ScrollingBackground& background)
+{
     GameState gameState = MENU;
     SDL_Event event;
     bool quit = false;
@@ -43,7 +45,7 @@ void gameLoop(Graphics& graphics, Memory& memory, Mouse& mouse){
             SDL_GetMouseState(&mouseX, &mouseY);
             if(gameState == PLAYING)
             {
-            memory.mouseClickEvent(memory, mouseX, mouseY);
+                memory.mouseClickEvent(memory, mouseX, mouseY);
             }
             break;
         case SDL_MOUSEBUTTONUP:
@@ -62,7 +64,15 @@ void gameLoop(Graphics& graphics, Memory& memory, Mouse& mouse){
 
         if(gameState == MENU)
         {
-            SDL_RenderCopy(graphics.renderer, memory.menu, NULL, NULL);
+            background.setTexture(graphics.loadTexture("image/menuBackground.jpg"));
+            background.scroll(1);
+            graphics.render(background);
+            SDL_Rect menuBoard;
+            menuBoard.w = 870;
+            menuBoard.h = 658;
+            menuBoard.x = (SCREEN_WIDTH - menuBoard.w) / 2;
+            menuBoard.y = (SCREEN_HEIGHT - menuBoard.h) / 2;
+            SDL_RenderCopy(graphics.renderer, memory.menu, NULL, &menuBoard);
             startButton.update(mouse);
             startButton.draw(graphics);
         }
@@ -71,11 +81,11 @@ void gameLoop(Graphics& graphics, Memory& memory, Mouse& mouse){
             graphics.renderBoard(graphics, memory);
             memory.compareBall(memory);
             if (memory.checkWin(memory.matched))
-        {
-            cerr << "You win!" << endl;
-            graphics.renderWinBoard(graphics, memory);
-            quit = true;
-        }
+            {
+                cerr << "You win!" << endl;
+                graphics.renderWinBoard(graphics, memory);
+                quit = true;
+            }
         }
         mouse.draw();
         SDL_Delay(16);

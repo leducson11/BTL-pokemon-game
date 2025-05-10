@@ -18,10 +18,11 @@ int main(int argc, char *argv[])
     graphics.init();
     Mouse mouse(graphics);
     Memory memory;
+    ScrollingBackground background;
 
     loadResources(graphics, memory);
 
-    gameLoop(graphics, memory, mouse);
+    gameLoop(graphics, memory, mouse, background);
 
     graphics.quit();
     return 0;
